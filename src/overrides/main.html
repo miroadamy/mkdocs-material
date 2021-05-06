@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to
@@ -41,8 +41,8 @@
   <meta property="og:url" content="{{ page.canonical_url }}" />
   <meta property="og:image" content="{{ image }}" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="568" />
 
   <!-- Twitter meta tags -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -51,37 +51,30 @@
   <meta name="twitter:title" content="{{ title }}" />
   <meta name="twitter:description" content="{{ config.site_description }}" />
   <meta name="twitter:image" content="{{ image }}" />
+
+  <!-- Extra stylesheets -->
+  <link
+    rel="stylesheet"
+    href="{{ 'overrides/assets/stylesheets/main.css' | url }}"
+  />
 {% endblock %}
 
 <!-- Announcement bar -->
 {% block announce %}
-  <style>
-
-    /* Preserve link color */
-    .md-announce a,
-    .md-announce a:focus,
-    .md-announce a:hover {
-      color: currentColor;
-    }
-
-    /* Don't wrap name of blog article */
-    .md-announce strong {
-      white-space: nowrap;
-    }
-
-    /* Twitter icon */
-    .md-announce .twitter {
-      margin-left: .2em;
-      color: #00acee;
-    }
-  </style>
-  <a href="https://github.com/sponsors/squidfunk">
-    If you like this project and use it a lot, consider sponsoring it via <strong>GitHub
-    <span class="twemoji">
-      <svg viewBox="0 2 12 16">
-        <path fill="#ea4aaa" d="M8.727 3C7.091 3 6.001 4.65 6.001 4.65S4.909 3 3.273 3C1.636 3 0 4.1 0 6.3 0 9.6 6 14 6 14s6-4.4 6-7.7C12 4.1 10.364 3 8.727 3z"></path>
-      </svg>
+  <a href="https://twitter.com/squidfunk">
+    For updates follow <strong>@squidfunk</strong> on
+    <span class="twemoji twitter">
+      {% include ".icons/fontawesome/brands/twitter.svg" %}
     </span>
-    Sponsors</strong>
+    <strong>Twitter</strong>
   </a>
 {% endblock %}
+
+<!-- Theme-related JavaScript -->
+{% block scripts %}
+  {{ super() }}
+
+  <!-- Extra JavaScript -->
+  <script src="{{ 'overrides/assets/javascripts/bundle.js' | url }}"></script>
+{% endblock %}
+
