@@ -52,6 +52,8 @@ RUN \
     'mkdocs-git-revision-date-localized-plugin>=0.4' \
     'mkdocs-awesome-pages-plugin>=2.2.1' \
     'mkdocs-macros-plugin' \
+    'mkdocs-with-confluence' \
+    'requests' \
   && apk del .build gcc musl-dev \
   && \
     for theme in mkdocs readthedocs; do \
